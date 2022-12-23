@@ -13,9 +13,9 @@ import (
 
 	//"github.com/y0ssar1an/q"
 
-	"github.com/bobbae/q"
-	"github.com/bobbae/q/pkg1"
-	"github.com/bobbae/q/pkg2"
+	"github.com/qeoZ/q/pkg2"
+	"github.com/qeof/q"
+	"github.com/qeof/q/pkg1"
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"

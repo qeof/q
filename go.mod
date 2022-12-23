@@ -1,4 +1,4 @@
-module github.com/bobbae/q
+module github.com/qeof/q
 
 go 1.14
 
