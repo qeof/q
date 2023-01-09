@@ -135,8 +135,8 @@ func TestOutput(t *testing.T) {
 		want string
 	}{
 		{
-			args: []string{fmt.Sprintf("%s=%s", colorize("a", bold), colorize("int(1)", cyan))},
-			want: fmt.Sprintf("%s %s=%s\n", colorize("0.000s", yellow), colorize("a", bold), colorize("int(1)", cyan)),
+			args: []string{fmt.Sprintf("%s=%s", "a", "int(1)")},
+			want: fmt.Sprintf("%s %s=%s\n", "0.000s", "a", "int(1)"),
 		},
 		// TODO: more tests
 	}

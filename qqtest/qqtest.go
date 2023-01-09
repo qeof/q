@@ -13,9 +13,9 @@ import (
 
 	//"github.com/y0ssar1an/q"
 
-	"github.com/qeoZ/q/pkg2"
 	"github.com/qeof/q"
 	"github.com/qeof/q/pkg1"
+	"github.com/qeof/q/pkg2"
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
@@ -173,7 +173,7 @@ func maintest3() {
 
 func maintest4() {
 	q.Q("test4")
-	q.Q("booo")
+	q.Q("test4 booo")
 }
 
 /*

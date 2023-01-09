@@ -96,19 +96,9 @@ func argWidth(arg string) int {
 		"\r", "",
 		"\f", "",
 		"\v", "",
-		string(bold), "",
-		string(yellow), "",
-		string(cyan), "",
-		string(endColor), "",
 	)
 	s := replacer.Replace(arg)
 	return utf8.RuneCountInString(s)
-}
-
-// colorize returns the given text encapsulated in ANSI escape codes that
-// give the text color in the terminal.
-func colorize(text string, c color) string {
-	return string(c) + text + string(endColor)
 }
 
 // exprToString returns the source text underlying the given ast.Expr.
@@ -122,11 +112,11 @@ func exprToString(arg ast.Expr) string {
 	return strings.Replace(buf.String(), "\t", "    ", -1)
 }
 
-// formatArgs converts the given args to pretty-printed, colorized strings.
+// formatArgs converts the given args to pretty-printed
 func formatArgs(args ...interface{}) []string {
 	formatted := make([]string, 0, len(args))
 	for _, a := range args {
-		s := colorize(pretty.Sprint(a), cyan)
+		s := pretty.Sprint(a)
 		formatted = append(formatted, s)
 	}
 	return formatted
@@ -146,8 +136,7 @@ func getCallerInfo() (funcName, file string, line int, err error) {
 }
 
 // prependArgName turns argument names and values into name=value strings, e.g.
-// "port=443", "3+2=5". If the name is given, it will be bolded using ANSI
-// color codes. If no name is given, just the value will be returned.
+// "port=443", "3+2=5".
 func prependArgName(names, values []string) []string {
 	prepended := make([]string, len(values))
 	for i, name := range names {
@@ -155,7 +144,6 @@ func prependArgName(names, values []string) []string {
 			prepended[i] = values[i]
 			continue
 		}
-		name = colorize(name, bold)
 		prepended[i] = fmt.Sprintf("%s=%s", name, values[i])
 	}
 	return prepended

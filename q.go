@@ -18,15 +18,7 @@ import (
 	"time"
 )
 
-type color string
-
 const (
-	// ANSI color escape codes
-	bold     color = "\033[1m"
-	yellow   color = "\033[33m"
-	cyan     color = "\033[36m"
-	endColor color = "\033[0m" // "reset everything"
-
 	maxLineWidth = 80
 	bufSize      = 16384
 )
@@ -164,7 +156,6 @@ func (l *logger) ioCopy(f *os.File) error {
 func (l *logger) output(args ...string) {
 	timestamp := fmt.Sprintf("%.3fs", time.Since(l.start).Seconds())
 	timestampWidth := len(timestamp) + 1 // +1 for padding space after timestamp
-	timestamp = colorize(timestamp, yellow)
 
 	// preWidth is the length of everything before the log message.
 	fmt.Fprint(l.buf, timestamp, " ")

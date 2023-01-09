@@ -12,6 +12,7 @@ Added features to make q.Q() a useful debugging tool:
 * q.P = "xyz.*" turns on q.Q messages for functions or packages that contain string "xyz"
 * q.P can be set to any regexp to match the package or function names. That way only certain q.Q() messages in certain package or function will be printed
 * Unlike glog, init() does not add to flags to enable q.O or q.P. They are set manually or can be mapped to flags using specific packages such as cobra, flag, urfave/cli, etc. This way you can avoid situations where cobra is used for flags and flag package init() done is nullified.
+* removed ansi escape colors
 
 Example for this forked version usage at qqtest/main.go
 
